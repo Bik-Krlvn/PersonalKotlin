@@ -10,6 +10,8 @@ buildscript {
     ext.kotlin_coroutine_version = '1.0.0'
     ext.kotlin_room_adapter = '0.9.2'
     ext.material_version = '1.0.0'
+    ext.timber_version = '4.7.1'
+    ext.threetenabp_version = '1.1.0'
     repositories {
         google()
         jcenter()
