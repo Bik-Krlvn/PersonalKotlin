@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            app:startDestination="@id/diaryFragment">
+
+    <fragment android:id="@+id/diaryFragment"
+              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.personal.fragment.DiaryFragment"
+              android:label="fragment_diary" tools:layout="@layout/fragment_diary"/>
+    <fragment android:id="@+id/trashFragment"
+              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.personal.fragment.TrashFragment"
+              android:label="fragment_trash" tools:layout="@layout/fragment_trash"/>
+    <fragment android:id="@+id/settingsFragment"
+              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.settings.SettingsFragment"
+              android:label="SettingsFragment"/>
+</navigation>
