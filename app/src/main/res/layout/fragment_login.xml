@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:padding="16dp"
+                android:background="?attr/backgroundColor"
+                android:layout_height="match_parent"
+                tools:context=".ui.account.fragment.LoginFragment">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="?attr/titleTextColor"
+            android:text="hey welcome to Personal\n A beautiful journal app design to help track your day"
+            android:id="@+id/login_tv_header"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:padding="15dp"
+            android:layout_marginTop="35dp"
+            android:hint="email"
+            android:layout_below="@id/login_tv_header"
+            android:background="@drawable/square_edit_text_bg"
+            android:id="@+id/login_ed_email"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="password"
+            android:background="@drawable/square_edit_text_bg"
+            android:padding="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/login_ed_email"
+            android:ems="10"
+            android:id="@+id/login_ed_password"/>
+    <Button
+            android:text="Login"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/login_ed_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_button"/>
+
+</RelativeLayout>

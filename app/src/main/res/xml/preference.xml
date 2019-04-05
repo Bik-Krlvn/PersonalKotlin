@@ -10,4 +10,14 @@
                 android:summary="Change the application theme style"
         />
     </PreferenceCategory>
+    <PreferenceCategory
+            android:title="Account">
+
+        <SwitchPreference
+                android:defaultValue="false"
+                android:title="Keep me login"
+                android:key="key_pref_ask_account"
+                android:summary="Skip login page every time application start"
+        />
+    </PreferenceCategory>
 </PreferenceScreen>

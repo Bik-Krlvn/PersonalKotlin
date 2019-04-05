@@ -7,5 +7,6 @@
         <attr name="tintColor" format="color"/>
         <attr name="card_backgroundColor" format="color"/>
         <attr name="buttonColor" format="color"/>
+        <attr name="nav_iconTint" format="color"/>
     </declare-styleable>
 </resources>

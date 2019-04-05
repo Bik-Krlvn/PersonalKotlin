@@ -1,8 +1,6 @@
 package com.cheiseproj.bik_krl.personalkotlin.ui.personal.activity
 
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -10,8 +8,6 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.cheiseproj.bik_krl.personalkotlin.R
 import com.cheiseproj.bik_krl.personalkotlin.ui.base.BaseActivity
-import com.cheiseproj.bik_krl.personalkotlin.utils.enums.ThemeMode
-import com.cheiseproj.bik_krl.personalkotlin.utils.provider.ThemeProvider
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.appbar.*

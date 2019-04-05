@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#1F74CB</color>
     <color name="colorPrimaryDark">#2095E3</color>
     <color name="colorAccent">#D81B60</color>
 
-
     <!--Light theme colors-->
-    <color name="colorCardLight">#FFFFFF</color>
+    <color name="colorCardLight">#808080</color>
     <color name="colorTextLight">#808080</color>
     <color name="colorTitleTextLight">#808080</color>
     <color name="colorTintLight">#000000</color>
     <color name="colorButtonLight">#1E98FF</color>
+    <color name="nav_iconTintLight">#1E98FF</color>
     <color name="colorBackgroundLight">#FCFCFC</color>
 
     <!--Dark theme colors-->
     <color name="colorPrimary_DarkMode">#1E1E1E</color>
     <color name="colorPrimaryDark_DarkMode">#000000</color>
     <color name="colorTitleTextDark">#1F74CB</color>
+    <color name="nav_iconTintDark">#1F74CB</color>
     <color name="colorCardDark">#3C3C3C</color>
     <color name="colorTextDark">#FFFFFF</color>
     <color name="colorTintDark">#FFFFFF</color>

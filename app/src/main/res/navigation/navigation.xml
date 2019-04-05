@@ -6,11 +6,11 @@
 
     <fragment android:id="@+id/diaryFragment"
               android:name="com.cheiseproj.bik_krl.personalkotlin.ui.personal.fragment.DiaryFragment"
-              android:label="fragment_diary" tools:layout="@layout/fragment_diary"/>
+              android:label="Diary" tools:layout="@layout/fragment_diary"/>
     <fragment android:id="@+id/trashFragment"
               android:name="com.cheiseproj.bik_krl.personalkotlin.ui.personal.fragment.TrashFragment"
-              android:label="fragment_trash" tools:layout="@layout/fragment_trash"/>
+              android:label="Trash" tools:layout="@layout/fragment_trash"/>
     <fragment android:id="@+id/settingsFragment"
               android:name="com.cheiseproj.bik_krl.personalkotlin.ui.settings.SettingsFragment"
-              android:label="SettingsFragment"/>
+              android:label="Settings"/>
 </navigation>
