@@ -14,12 +14,14 @@
         <item name="buttonColor">@color/colorButtonLight</item>
         <item name="nav_iconTint">@color/nav_iconTintLight</item>
         <item name="titleTextColor">@color/colorTitleTextLight</item>
+        <item name="nav_bg_color">@color/nav_bg_color_Light</item>
+        <item name="nav_text_color">@color/nav_text_color_Light</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/AppThemeAnimation</item>
     </style>
 
-    <!-- Light/Day theme -->
+    <!-- Dark theme -->
     <style name="AppDarkTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary_DarkMode</item>
@@ -32,6 +34,8 @@
         <item name="card_backgroundColor">@color/colorCardDark</item>
         <item name="nav_iconTint">@color/nav_iconTintDark</item>
         <item name="buttonColor">@color/colorButtonDark</item>
+        <item name="nav_bg_color">@color/nav_bg_color_Dark</item>
+        <item name="nav_text_color">@color/nav_text_color_Dark</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/AppThemeAnimation</item>

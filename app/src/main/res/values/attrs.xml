@@ -8,5 +8,7 @@
         <attr name="card_backgroundColor" format="color"/>
         <attr name="buttonColor" format="color"/>
         <attr name="nav_iconTint" format="color"/>
+        <attr name="nav_bg_color" format="color"/>
+        <attr name="nav_text_color" format="color"/>
     </declare-styleable>
 </resources>
