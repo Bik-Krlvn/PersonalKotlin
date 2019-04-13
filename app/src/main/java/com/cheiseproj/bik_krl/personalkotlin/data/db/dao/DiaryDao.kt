@@ -1,21 +1,36 @@
 package com.cheiseproj.bik_krl.personalkotlin.data.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.CategoryEntity
 import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.DiaryEntity
+import io.reactivex.Flowable
+import io.reactivex.Observable
 
 @Dao
 interface DiaryDao {
+    //region Diary
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUserDiary(diaryEntity: DiaryEntity):Long
+    fun insertUserDiary(diaryEntity: DiaryEntity)
 
-    @Query("SELECT * FROM table_diary WHERE userId = :userId ")
-    fun getUserDiary(userId:Int):LiveData<List<DiaryEntity>>
+    @Query("SELECT * FROM table_diary WHERE userId = :userId ORDER BY id DESC ")
+    fun getCurrentUserDiary(userId:Int):Flowable<List<DiaryEntity>>
 
 
     @Query("SELECT * FROM table_diary WHERE id = :diaryId AND userId = :userId ")
-    fun getUserDiaryById(diaryId:Int,userId:Int):LiveData<DiaryEntity>
+    fun getSpecifiedDiary(diaryId:Int,userId: Int):Observable<DiaryEntity>
+    //endregion
+
+    //region Category
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllDiaryCategory(vararg categoryEntity: CategoryEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertNewCategory(categoryEntity: CategoryEntity)
+
+    @Query("SELECT * FROM table_category")
+    fun getDiaryCategory():Flowable<List<CategoryEntity>>
+    //endregion
 }

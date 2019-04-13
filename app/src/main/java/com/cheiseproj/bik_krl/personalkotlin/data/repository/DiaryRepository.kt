@@ -1,52 +1,29 @@
 package com.cheiseproj.bik_krl.personalkotlin.data.repository
 
-import androidx.annotation.WorkerThread
-import androidx.lifecycle.LiveData
 import com.cheiseproj.bik_krl.personalkotlin.data.db.dao.DiaryDao
+import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.CategoryEntity
 import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.DiaryEntity
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.withContext
-import timber.log.Timber
+import io.reactivex.Completable
+import io.reactivex.Flowable
+import io.reactivex.Observable
 import javax.inject.Inject
 
 class DiaryRepository @Inject constructor(
-    private val diaryDao: DiaryDao):Repository<DiaryEntity>()
+    private val diaryDao: DiaryDao)
 {
-    private var getUserId = 0
-    private var getDiaryId = 0
 
-    fun getUserDiary(userId:Int){
-        getUserId = userId
+    fun getCurrentUserDiary(userId:Int):Flowable<List<DiaryEntity>>{
+        return diaryDao.getCurrentUserDiary(userId)
     }
 
-    fun getUserDiaryById(diaryId:Int,userId: Int){
-        getDiaryId = diaryId
-        getUserId = userId
-    }
-
-
-    @WorkerThread override suspend fun insertDataAsync(data: DiaryEntity):Int{
-       return withContext(IO){
-           Timber.i("insertData: ${data.title} success")
-           return@withContext diaryDao.insertUserDiary(data).toInt()
-       }
-    }
-
-    @WorkerThread override suspend fun getDataAsync(): LiveData<List<DiaryEntity>> {
-        return withContext(IO){
-            diaryDao.getUserDiary(getUserId)
+    fun insertUserDiary(diaryEntity: DiaryEntity):Completable{
+        return Completable.fromAction{
+            diaryDao.insertUserDiary(diaryEntity)
         }
     }
 
-    @WorkerThread override suspend fun getDataByIdAsync(): LiveData<DiaryEntity> {
-        return withContext(IO){
-            diaryDao.getUserDiaryById(getDiaryId,getUserId)
-        }
+    fun getDiaryCategory():Flowable<List<CategoryEntity>>{
+        return diaryDao.getDiaryCategory()
     }
 
-    override suspend fun insertMultipleDataAsync(dataList: List<DiaryEntity>) {
-    }
-
-    override suspend fun updateData(data: DiaryEntity) {
-    }
 }

@@ -9,6 +9,7 @@ data class DiaryEntity(
     val title:String,
     val content:String,
     val userId:Int,
+    val category:String,
     val createdAt:Date,
     val modifiedAt:Date
 ){
