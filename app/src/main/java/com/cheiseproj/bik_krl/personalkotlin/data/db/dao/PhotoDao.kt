@@ -6,11 +6,12 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.PhotosEntity
+import io.reactivex.Single
 
 @Dao
 interface PhotoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUserDiaryPhotos(photoList: List<PhotosEntity>):List<Long>
+    fun insertUserDiaryPhotos(photoList: ArrayList<PhotosEntity>):Single<List<Long>>
 
     @Query("SELECT * FROM table_photo WHERE userId = :userId AND diaryId = :diaryId")
     fun getUserDiaryPhotos(userId:Int,diaryId:Int):LiveData<List<PhotosEntity>>

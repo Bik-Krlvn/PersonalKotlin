@@ -1,11 +1,14 @@
 package com.cheiseproj.bik_krl.personalkotlin.ui.personal.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
 import com.cheiseproj.bik_krl.personalkotlin.R
 import com.cheiseproj.bik_krl.personalkotlin.adapter.MainNavigationAdapter
 import com.cheiseproj.bik_krl.personalkotlin.ui.base.BaseActivity
+import com.cheiseproj.bik_krl.personalkotlin.ui.settings.SettingsActivity
 import com.cheiseproj.bik_krl.personalkotlin.utils.provider.PersonalNavigationProvider
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -14,7 +17,6 @@ import javax.inject.Inject
 
 class PersonalActivity : BaseActivity(),HasSupportFragmentInjector {
     @Inject lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
-    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,5 +34,16 @@ class PersonalActivity : BaseActivity(),HasSupportFragmentInjector {
     override fun supportFragmentInjector() = fragmentInjector
     //endregion
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.personal_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            R.id.nav_settings -> startActivity(Intent(this,SettingsActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 }

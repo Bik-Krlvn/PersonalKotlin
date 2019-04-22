@@ -8,12 +8,13 @@ import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.CategoryEntity
 import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.DiaryEntity
 import io.reactivex.Flowable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 @Dao
 interface DiaryDao {
     //region Diary
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUserDiary(diaryEntity: DiaryEntity)
+    fun insertUserDiary(diaryEntity: DiaryEntity):Single<Long>
 
     @Query("SELECT * FROM table_diary WHERE userId = :userId ORDER BY id DESC ")
     fun getCurrentUserDiary(userId:Int):Flowable<List<DiaryEntity>>

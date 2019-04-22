@@ -1,14 +1,16 @@
 package com.cheiseproj.bik_krl.personalkotlin.di.module
 
+import android.app.Application
+import com.cheiseproj.bik_krl.personalkotlin.utils.provider.ImagePathProvider
 import dagger.Module
 import dagger.Provides
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
+import javax.inject.Singleton
 
 @Module(includes = [PreferenceModule::class,RoomModule::class,RxJavaModule::class])
 class AppModule {
-    @Provides
-    fun provideExecuter(): Executor {
-         return Executors.newFixedThreadPool(2)
-    }
+   @Singleton
+   @Provides
+   fun provideImagePathProvider(application: Application):ImagePathProvider{
+       return ImagePathProvider(application.applicationContext)
+   }
 }

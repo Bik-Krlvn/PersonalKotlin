@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.cheiseproj.bik_krl.personalkotlin.R
@@ -15,6 +16,7 @@ import com.cheiseproj.bik_krl.personalkotlin.ui.base.BaseFragment
 import com.cheiseproj.bik_krl.personalkotlin.ui.personal.activity.AddOrUpdateActivity
 import com.cheiseproj.bik_krl.personalkotlin.viewmodel.DiaryViewModel
 import kotlinx.android.synthetic.main.fragment_diary.view.*
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -24,14 +26,16 @@ import javax.inject.Inject
 class DiaryFragment : BaseFragment(),Injectable {
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: DiaryViewModel
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_diary, container, false)
+        return inflater.inflate(R.layout.fragment_diary, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         view.fab_create.setOnClickListener { openAddOrUpdateActivity() }
-        return view
+
     }
 
     private fun openAddOrUpdateActivity() {
@@ -46,6 +50,15 @@ class DiaryFragment : BaseFragment(),Injectable {
 
     private fun configureViewModel() {
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(DiaryViewModel::class.java)
+        viewModel.getUserDiary(1)
+        insertData()
+    }
+
+    private fun insertData() {
+//        viewModel.insertUserDiary(DiaryEntity("my title","some dara",1,Date(), Date()))
+        viewModel.userDiary.observe(this, Observer {
+            it.let {data-> Timber.i("$data.size") }
+        })
     }
 
 }

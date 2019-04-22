@@ -12,13 +12,13 @@ object PersonalNavigationProvider {
         val colors = context.resources.getStringArray(R.array.default_preview)
         val models = ArrayList<NavigationTabBar.Model>()
         models.add(NavigationTabBar.Model.Builder(
-            ContextCompat.getDrawable(context,R.drawable.ic_book_white_24dp)
+            ContextCompat.getDrawable(context,R.drawable.ic_open_book)
             ,Color.parseColor(colors[4])).title("Diary").build())
         models.add(NavigationTabBar.Model.Builder(
-            ContextCompat.getDrawable(context,R.drawable.ic_photo_white_24dp)
+            ContextCompat.getDrawable(context,R.drawable.ic_photo_camera)
             ,Color.parseColor(colors[1])).title("Gallery").build())
         models.add(NavigationTabBar.Model.Builder(
-            ContextCompat.getDrawable(context,R.drawable.ic_delete_white_24dp)
+            ContextCompat.getDrawable(context,R.drawable.ic_bin)
             ,Color.parseColor(colors[0])).title("Trash").build())
 
         return models

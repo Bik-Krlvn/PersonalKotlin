@@ -2,6 +2,7 @@ package com.cheiseproj.bik_krl.personalkotlin
 
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import com.cheiseproj.bik_krl.personalkotlin.di.injector.AppInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -11,7 +12,6 @@ import javax.inject.Inject
 
 class PersonalApp:Application(),HasActivityInjector {
     @Inject lateinit var activityInjector: DispatchingAndroidInjector<Activity>
-
     override fun onCreate() {
         super.onCreate()
         AppInjector.init(this)
@@ -19,6 +19,7 @@ class PersonalApp:Application(),HasActivityInjector {
             Timber.plant(Timber.DebugTree())
         }
     }
+
 
     override fun activityInjector(): AndroidInjector<Activity> = activityInjector
 }

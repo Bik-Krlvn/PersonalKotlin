@@ -7,6 +7,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorBackgroundLight</item>
         <item name="backgroundColor">@color/colorBackgroundLight</item>
         <item name="textColor">@color/colorTextLight</item>
         <item name="tintColor">@color/colorTintLight</item>
@@ -16,8 +17,11 @@
         <item name="titleTextColor">@color/colorTitleTextLight</item>
         <item name="nav_bg_color">@color/nav_bg_color_Light</item>
         <item name="nav_text_color">@color/nav_text_color_Light</item>
+        <item name="dialog_title_color">@color/dialog_title_color_Light</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="actionBarStyle">@style/toolbarThemeLight</item>
+
         <item name="android:windowAnimationStyle">@style/AppThemeAnimation</item>
     </style>
 
@@ -28,6 +32,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark_DarkMode</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">@color/colorBackgroundDark</item>
+        <item name="android:windowBackground">@color/colorBackgroundDark</item>
         <item name="textColor">@color/colorTextDark</item>
         <item name="titleTextColor">@color/colorTitleTextDark</item>
         <item name="tintColor">@color/colorTintDark</item>
@@ -36,8 +41,10 @@
         <item name="buttonColor">@color/colorButtonDark</item>
         <item name="nav_bg_color">@color/nav_bg_color_Dark</item>
         <item name="nav_text_color">@color/nav_text_color_Dark</item>
+        <item name="dialog_title_color">@color/dialog_title_color_Dark</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="actionBarStyle">@style/toolbarThemeDark</item>
         <item name="android:windowAnimationStyle">@style/AppThemeAnimation</item>
     </style>
 
@@ -47,7 +54,12 @@
         <item name="android:windowExitTransition">@android:transition/explode</item>
     </style>
 
-    <style name="toolbarTheme" parent="ThemeOverlay.MaterialComponents.ActionBar">
+    <style name="toolbarThemeDark" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">#DEDEDE</item>
+    </style>
+
+    <style name="toolbarThemeLight" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:textColorSecondary">#DEDEDE</item>
     </style>

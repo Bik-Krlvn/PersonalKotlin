@@ -19,8 +19,11 @@ class DiaryViewModel @Inject constructor(
 ) :BaseViewModel(){
     val userDiary:MutableLiveData<List<DiaryEntity>> = MutableLiveData()
     val diaryCategory:MutableLiveData<List<CategoryEntity>> = MutableLiveData()
+    val galleryLiveImage:MutableLiveData<ArrayList<String>> = MutableLiveData()
+    val diaryId:MutableLiveData<Int> = MutableLiveData()
+
     fun getUserDiary(userId:Int){
-        this.disposable.addAll(diaryRepository.getCurrentUserDiary(userId)
+        disposable.addAll(diaryRepository.getCurrentUserDiary(userId)
             .subscribeOn(subscriberOn)
             .observeOn(observerOn)
             .doOnSubscribe {  }
@@ -37,11 +40,20 @@ class DiaryViewModel @Inject constructor(
     }
 
     fun insertUserDiary(diaryEntity: DiaryEntity){
-        this.disposable.addAll(diaryRepository.insertUserDiary(diaryEntity)
+        disposable.addAll(diaryRepository.insertUserDiary(diaryEntity)
             .subscribeOn(subscriberOn)
             .observeOn(observerOn)
             .doOnError { error -> Timber.i(error,"Data Insert Failed") }
-            .subscribe { Timber.i("Data Inserted Successfully") })
+            .subscribe {id -> diaryId.value = id.toInt(); Timber.i("Diary Inserted Successfully, Diary Id: $id");})
     }
+
+    fun insertUserPhotos(galleryPhotos: ArrayList<String>?,diaryId:Int) {
+        galleryPhotos?.let {p -> disposable.addAll(diaryRepository.insertUserDiaryPhoto(p,0,diaryId)
+            .subscribeOn(subscriberOn)
+            .observeOn(observerOn)
+            .doOnError { error -> Timber.i(error,"Photos Insert Failed") }
+            .subscribe {photoId -> Timber.i("Photos Inserted Successfully, Ids: $photoId") }) }
+    }
+
 
 }

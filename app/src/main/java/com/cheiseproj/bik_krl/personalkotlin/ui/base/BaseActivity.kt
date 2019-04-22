@@ -1,6 +1,7 @@
 package com.cheiseproj.bik_krl.personalkotlin.ui.base
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.cheiseproj.bik_krl.personalkotlin.R
 import com.cheiseproj.bik_krl.personalkotlin.utils.enums.ThemeMode
@@ -22,6 +23,10 @@ abstract class BaseActivity:AppCompatActivity(),CoroutineScope {
 
 
 
+    }
+
+    protected fun toastMessage(msg:String,lenght:Int = Toast.LENGTH_SHORT){
+        Toast.makeText(this,msg,lenght).show()
     }
 
     private fun setupTheme(){

@@ -83,5 +83,10 @@ dependencies {
     implementation "devlight.io:navigationtabbar:$navigationBarVersion"
     implementation "androidx.viewpager:viewpager:$material_version"
 
+    //Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rx_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+
 
 }

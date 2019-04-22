@@ -12,7 +12,7 @@ class AccountProvider @Inject constructor(
     suspend fun getLoginMode():LoginMode{
         return withContext(Dispatchers.IO){
             val isSkipMode = sharedPreferences.getBoolean(KEY_ASK_ACCOUNT,false)
-            return@withContext if (isSkipMode) LoginMode.SKIP_LOGIN else LoginMode.ASK_LOGIN
+            return@withContext if (!isSkipMode) LoginMode.SKIP_LOGIN else LoginMode.ASK_LOGIN
         }
 
     }
