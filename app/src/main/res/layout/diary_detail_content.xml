@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_marginStart="8dp"
+                                                   android:layout_marginEnd="8dp"
+                                                   android:layout_marginTop="8dp"
+                                                   app:cardBackgroundColor="?attr/card_backgroundColor"
+                                                   android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+    >
+
+        <TextView android:layout_width="match_parent"
+                  android:text="@string/content"
+                  android:padding="5dp"
+                  android:textColor="?attr/materialSecondaryDefaultTextColor"
+                  android:id="@+id/tv"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                  android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:id="@+id/v1"
+                android:padding="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@android:color/darker_gray" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:id="@+id/tv_title"
+                  android:padding="5dp"
+                  android:textColor="?attr/materialPrimaryDefaultTextColor"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                  android:text="@string/delete_photo_message"
+                  android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/v1" android:layout_marginStart="16dp"
+                  app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:id="@+id/tv_content"
+                  android:padding="5dp"
+                  android:textColor="?attr/materialSecondaryDefaultTextColor"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                  android:text="@string/storage_permission_explained"
+                  android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/tv_title" android:layout_marginStart="16dp"
+                  app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -32,4 +32,12 @@ class DiaryRepository @Inject constructor(
         return photoDao.insertUserDiaryPhotos(photoEntityList)
     }
 
+    fun getSpecifiedDiary(diaryId: Int,userId: Int):Single<DiaryEntity>{
+        return diaryDao.getSpecifiedDiary(diaryId,userId)
+    }
+
+    fun getUserDiaryPhoto(diaryId: Int,userId: Int):Flowable<List<PhotosEntity>>{
+        return photoDao.getUserDiaryPhotos(diaryId,userId)
+    }
+
 }

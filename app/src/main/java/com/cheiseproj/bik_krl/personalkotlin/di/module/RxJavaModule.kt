@@ -15,7 +15,7 @@ class RxJavaModule {
 
     @Provides
     @Named(SUBSCRIBER_ON)
-    fun provideSuscriberOn(): Scheduler = Schedulers.io()
+    fun provideSubscriberOn(): Scheduler = Schedulers.io()
 
     @Provides
     @Named(OBSERVER_ON)

@@ -2,7 +2,6 @@ package com.cheiseproj.bik_krl.personalkotlin.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.cheiseproj.bik_krl.personalkotlin.data.db.converter.DateTypeConverter
 import com.cheiseproj.bik_krl.personalkotlin.data.db.dao.DiaryDao

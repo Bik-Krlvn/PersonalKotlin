@@ -1,60 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="?attr/backgroundColor"
+                                                   tools:context=".ui.auth.fragment.RegisterFragment"
+>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="16dp"
+            android:layout_height="wrap_content">
+
+        <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp"
-                android:background="?attr/backgroundColor"
-                tools:context=".ui.account.fragment.RegisterFragment">
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_header"
+                android:textColor="?attr/titleTextColor"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:text="@string/prompt_register_message"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/square_edit_text_bg"
+                android:hint="@string/username"
+                android:id="@+id/ed_username"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_header"
+                tools:ignore="Autofill"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="@string/email"
+                android:padding="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/square_edit_text_bg"
+                android:id="@+id/ed_email"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/ed_username"
+                tools:ignore="Autofill"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:background="@drawable/square_edit_text_bg"
+                android:padding="15dp"
+                android:hint="@string/password"
+                android:layout_marginTop="15dp"
+                android:id="@+id/ed_password"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/ed_email"
+                tools:ignore="Autofill"/>
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/reg_tv_header"
-            android:textColor="?attr/titleTextColor"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:text="Hello there, thanks for siginup with us"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:padding="15dp"
-            android:layout_marginTop="35dp"
-            android:background="@drawable/square_edit_text_bg"
-            android:layout_below="@id/reg_tv_header"
-            android:hint="username"
-            android:ems="10"
-            android:id="@+id/reg_ed_username"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:hint="email"
-            android:padding="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_below="@id/reg_ed_username"
-            android:background="@drawable/square_edit_text_bg"
-            android:id="@+id/reg_ed_email"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:layout_below="@id/reg_ed_email"
-            android:background="@drawable/square_edit_text_bg"
-            android:padding="15dp"
-            android:hint="password"
-            android:layout_marginTop="15dp"
-            android:id="@+id/reg_ed_password"/>
-    <Button
-            android:text="create"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="?attr/buttonColor"
-            android:layout_below="@id/reg_ed_password"
-            android:id="@+id/reg_button"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:background="@drawable/square_edit_text_bg"
+                android:padding="15dp"
+                android:hint="@string/confirm_password"
+                android:layout_marginTop="15dp"
+                android:id="@+id/ed_confirm_password"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/ed_password"
+                tools:ignore="Autofill"/>
+        <Button
+                android:text="@string/register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="?attr/buttonColor"
+                android:id="@+id/btn_create"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ed_confirm_password"/>
 
-</RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -22,23 +22,18 @@ class ImagePathProvider(/* Get uri related content real local file path. */
     private val isAboveKitKat: Boolean
         @SuppressLint("ObsoleteSdkInt")
         get() {
-            var ret = false
-            ret = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-            return ret
+            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
         }
 
     fun getUriRealPath(uri: Uri): String {
-        var ret = ""
 
-        ret = if (isAboveKitKat) {
+        return if (isAboveKitKat) {
             // Android OS above sdk version 19.
             getUriRealPathAboveKitkat(context, uri)
         } else {
             // Android OS below sdk version 19
             getImageRealPath(contentResolver, uri, null)
         }
-
-        return ret
     }
 
     private fun getUriRealPathAboveKitkat(ctx: Context?, uri: Uri?): String {

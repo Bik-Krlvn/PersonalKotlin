@@ -5,9 +5,9 @@
             app:startDestination="@id/loginFragment">
 
     <fragment android:id="@+id/loginFragment"
-              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.account.fragment.LoginFragment"
+              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.auth.fragment.LoginFragment"
               android:label="Login" tools:layout="@layout/fragment_login"/>
     <fragment android:id="@+id/registerFragment"
-              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.account.fragment.RegisterFragment"
+              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.auth.fragment.RegisterFragment"
               android:label="Register" tools:layout="@layout/fragment_register"/>
 </navigation>

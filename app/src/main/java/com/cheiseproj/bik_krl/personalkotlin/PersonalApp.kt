@@ -1,25 +1,37 @@
 package com.cheiseproj.bik_krl.personalkotlin
 
-import android.app.Activity
-import android.app.Application
-import android.content.Context
-import com.cheiseproj.bik_krl.personalkotlin.di.injector.AppInjector
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import com.cheiseproj.bik_krl.personalkotlin.di.AppComponent
+import com.cheiseproj.bik_krl.personalkotlin.di.DaggerAppComponent
+import dagger.android.DaggerApplication
 import timber.log.Timber
-import javax.inject.Inject
 
-class PersonalApp:Application(),HasActivityInjector {
-    @Inject lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+//class PersonalApp:Application(),HasActivityInjector {
+//    @Inject lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+//    override fun onCreate() {
+//        super.onCreate()
+//        AppInjector.init(this)
+//        if (BuildConfig.DEBUG){
+//            Timber.plant(Timber.DebugTree())
+//        }
+//    }
+//
+//
+//    override fun activityInjector(): AndroidInjector<Activity> = activityInjector
+//}
+
+class PersonalApp :DaggerApplication(){
+    private val appComponent:AppComponent =
+        DaggerAppComponent.builder().application(this).build()
+
     override fun onCreate() {
         super.onCreate()
-        AppInjector.init(this)
+        appComponent.inject(this)
+
         if (BuildConfig.DEBUG){
             Timber.plant(Timber.DebugTree())
         }
     }
 
+    override fun applicationInjector() = appComponent
 
-    override fun activityInjector(): AndroidInjector<Activity> = activityInjector
 }

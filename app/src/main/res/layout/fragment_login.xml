@@ -1,48 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:padding="16dp"
                 android:background="?attr/backgroundColor"
                 android:layout_height="match_parent"
-                tools:context=".ui.account.fragment.LoginFragment">
+                tools:context=".ui.auth.fragment.LoginFragment"
+>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:padding="16dp"
+                                                       android:layout_height="wrap_content"
+    >
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginTop="15dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="?attr/titleTextColor"
+                android:text="@string/prompt_login_message"
+                android:id="@+id/tv_header"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"
+                android:hint="@string/email"
+                android:elevation="1dp"
+                android:background="@drawable/square_edit_text_bg"
+                android:id="@+id/ed_email" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_header" tools:ignore="Autofill"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:layout_marginTop="15dp"
+                android:hint="@string/password"
+                android:padding="15dp"
+                android:elevation="1dp"
+                android:background="@drawable/square_edit_text_bg"
+                android:id="@+id/ed_password" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ed_email" tools:ignore="Autofill"/>
+        <Button
+                android:text="@string/login"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="?attr/buttonColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/btn_login"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/ed_password"/>
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:textColor="?attr/titleTextColor"
-            android:text="hey welcome to Personal\n A beautiful journal app design to help track your day"
-            android:id="@+id/login_tv_header"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:padding="15dp"
-            android:layout_marginTop="35dp"
-            android:hint="email"
-            android:layout_below="@id/login_tv_header"
-            android:background="@drawable/square_edit_text_bg"
-            android:id="@+id/login_ed_email"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="password"
-            android:background="@drawable/square_edit_text_bg"
-            android:padding="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_below="@id/login_ed_email"
-            android:ems="10"
-            android:id="@+id/login_ed_password"/>
-    <Button
-            android:text="Login"
-            android:layout_marginTop="15dp"
-            android:layout_below="@id/login_ed_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/login_button"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</RelativeLayout>
+
+</ScrollView>

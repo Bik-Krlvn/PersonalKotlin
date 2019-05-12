@@ -11,5 +11,8 @@
         <attr name="nav_bg_color" format="color"/>
         <attr name="nav_text_color" format="color"/>
         <attr name="dialog_title_color" format="color"/>
+        <attr name="materialPrimaryDefaultTextColor" format="color"/>
+        <attr name="materialSecondaryDefaultTextColor" format="color"/>
+        <attr name="drawableTintColor" format="color"/>
     </declare-styleable>
 </resources>

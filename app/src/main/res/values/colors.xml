@@ -5,30 +5,38 @@
     <color name="colorAccent">#D81B60</color>
 
     <!--Light theme colors-->
-    <color name="colorCardLight">#808080</color>
+    <color name="colorCardLight">#FFFFFF</color>
     <color name="colorTextLight">#808080</color>
     <color name="colorTitleTextLight">#808080</color>
     <color name="colorTintLight">#000000</color>
     <color name="colorButtonLight">#1E98FF</color>
     <color name="nav_iconTintLight">#1E98FF</color>
-    <color name="colorBackgroundLight">#FCFCFC</color>
+    <color name="colorBackgroundLight">#F6F6F6</color>
     <color name="nav_bg_color_Light">#2095E3</color>
     <color name="nav_text_color_Light">#FFFFFF</color>
     <color name="dialog_title_color_Light">#FFFFFF</color>
+    <color name="colorPrimaryTextDefaultMaterialLight">#DE000000</color>
+    <color name="colorSecondaryTextDefaultMaterialLight">#8A000000</color>
+    <color name="colorDrawableTintLight">#2095E3</color>
+
 
     <!--Dark theme colors-->
-    <color name="colorPrimary_DarkMode">#1E1E1E</color>
-    <color name="colorPrimaryDark_DarkMode">#000000</color>
-    <color name="colorTitleTextDark">#1F74CB</color>
+    <color name="colorPrimary_DarkMode">#212121</color>
+    <color name="colorPrimaryDark_DarkMode">#0D0000</color>
+    <color name="colorTitleTextDark">#3B71CA</color>
     <color name="nav_iconTintDark">#1F74CB</color>
-    <color name="colorCardDark">#3C3C3C</color>
+    <color name="colorCardDark">#424242</color>
     <color name="colorTextDark">#FFFFFF</color>
     <color name="colorTintDark">#FFFFFF</color>
     <color name="colorButtonDark">#1E98FF</color>
-    <color name="colorBackgroundDark">#2B2B2B</color>
+    <color name="colorBackgroundDark">#303030</color>
     <color name="nav_bg_color_Dark">#000000</color>
     <color name="nav_text_color_Dark">#1F74CB</color>
     <color name="dialog_title_color_Dark">#1F74CB</color>
+
+    <color name="colorPrimaryTextDefaultMaterialDark">#FFFFFFFF</color>
+    <color name="colorSecondaryTextDefaultMaterialDark">#B3FFFFFF</color>
+    <color name="colorDrawableTintDark">#212121</color>
 
 
 </resources>

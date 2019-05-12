@@ -7,7 +7,6 @@ import androidx.room.Query
 import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.CategoryEntity
 import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.DiaryEntity
 import io.reactivex.Flowable
-import io.reactivex.Observable
 import io.reactivex.Single
 
 @Dao
@@ -21,7 +20,7 @@ interface DiaryDao {
 
 
     @Query("SELECT * FROM table_diary WHERE id = :diaryId AND userId = :userId ")
-    fun getSpecifiedDiary(diaryId:Int,userId: Int):Observable<DiaryEntity>
+    fun getSpecifiedDiary(diaryId:Int,userId: Int):Single<DiaryEntity>
     //endregion
 
     //region Category

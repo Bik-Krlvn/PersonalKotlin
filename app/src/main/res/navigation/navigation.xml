@@ -5,10 +5,10 @@
             app:startDestination="@id/diaryFragment">
 
     <fragment android:id="@+id/diaryFragment"
-              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.personal.fragment.DiaryFragment"
+              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.main.fragment.DiaryFragment"
               android:label="Diary" tools:layout="@layout/fragment_diary"/>
     <fragment android:id="@+id/trashFragment"
-              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.personal.fragment.TrashFragment"
+              android:name="com.cheiseproj.bik_krl.personalkotlin.ui.main.fragment.TrashFragment"
               android:label="Trash" tools:layout="@layout/fragment_trash"/>
     <fragment android:id="@+id/settingsFragment"
               android:name="com.cheiseproj.bik_krl.personalkotlin.ui.settings.SettingsFragment"

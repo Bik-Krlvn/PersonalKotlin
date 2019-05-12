@@ -2,14 +2,14 @@
 
     <!-- Base application theme. -->
     <!-- Light/Day theme -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorBackgroundLight</item>
         <item name="backgroundColor">@color/colorBackgroundLight</item>
-        <item name="textColor">@color/colorTextLight</item>
+        <item name="textColor">@color/colorPrimaryTextDefaultMaterialLight</item>
         <item name="tintColor">@color/colorTintLight</item>
         <item name="card_backgroundColor">@color/colorCardLight</item>
         <item name="buttonColor">@color/colorButtonLight</item>
@@ -20,20 +20,22 @@
         <item name="dialog_title_color">@color/dialog_title_color_Light</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="actionBarStyle">@style/toolbarThemeLight</item>
-
+        <item name="materialPrimaryDefaultTextColor">@color/colorPrimaryTextDefaultMaterialLight</item>
+        <item name="materialSecondaryDefaultTextColor">@color/colorSecondaryTextDefaultMaterialLight</item>
+        <item name="drawableTintColor">@color/colorDrawableTintLight</item>
         <item name="android:windowAnimationStyle">@style/AppThemeAnimation</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
     <!-- Dark theme -->
-    <style name="AppDarkTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppDarkTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary_DarkMode</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark_DarkMode</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">@color/colorBackgroundDark</item>
         <item name="android:windowBackground">@color/colorBackgroundDark</item>
-        <item name="textColor">@color/colorTextDark</item>
+        <item name="textColor">@color/colorPrimaryTextDefaultMaterialDark</item>
         <item name="titleTextColor">@color/colorTitleTextDark</item>
         <item name="tintColor">@color/colorTintDark</item>
         <item name="card_backgroundColor">@color/colorCardDark</item>
@@ -44,8 +46,13 @@
         <item name="dialog_title_color">@color/dialog_title_color_Dark</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="actionBarStyle">@style/toolbarThemeDark</item>
         <item name="android:windowAnimationStyle">@style/AppThemeAnimation</item>
+        <item name="materialPrimaryDefaultTextColor">@color/colorPrimaryTextDefaultMaterialDark</item>
+        <item name="materialSecondaryDefaultTextColor">@color/colorSecondaryTextDefaultMaterialDark</item>
+        <item name="drawableTintColor">@color/colorDrawableTintDark</item>
+        <item name="alertDialogTheme">@style/alertDialogDarkMode</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+
     </style>
 
     <style name="AppThemeAnimation">
@@ -54,14 +61,19 @@
         <item name="android:windowExitTransition">@android:transition/explode</item>
     </style>
 
-    <style name="toolbarThemeDark" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+
+    <style name="alertDialogDarkMode" parent="Base.ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:background">@color/colorPrimary_DarkMode</item>
         <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColorSecondary">#DEDEDE</item>
     </style>
 
-    <style name="toolbarThemeLight" parent="@style/Widget.AppCompat.Light.ActionBar">
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColorSecondary">#DEDEDE</item>
+    <style name="SplashTheme" parent="Theme.MaterialComponents">
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 </resources>

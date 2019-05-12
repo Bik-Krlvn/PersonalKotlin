@@ -1,93 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/backgroundColor"
-                xmlns:app="http://schemas.android.com/apk/res-auto">
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+             android:layout_height="wrap_content">
 
 
     <TextView
             android:id="@+id/dialog_title"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
             android:background="?attr/nav_iconTint"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:padding="15dp"
             android:text="@string/app_name"
-            android:textColor="?attr/dialog_title_color"
+            android:textColor="?attr/materialPrimaryDefaultTextColor"
             android:textSize="18sp"
-            android:textStyle="bold" />
-
-
-    <androidx.cardview.widget.CardView
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+    <RelativeLayout
+            android:id="@+id/body"
+            android:layout_below="@+id/dialog_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            app:cardCornerRadius="8dp"
-            app:contentPadding="5dp"
-            app:cardBackgroundColor="?attr/backgroundColor"
-            app:cardElevation="15dp"
-            app:cardUseCompatPadding="true">
+            android:layout_height="wrap_content">
 
-
-        <RelativeLayout
-                android:id="@+id/body"
+        <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:hint="@string/title"
+                android:inputType="textPersonName"
+                android:padding="13dp"
+                android:background="@drawable/square_edit_text_bg"
+                android:id="@+id/ed_title" tools:ignore="Autofill"/>
 
-            <EditText
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="title"
-                    android:padding="15dp"
-                    android:background="@drawable/square_edit_text_bg"
-                    android:id="@+id/ed_title"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="?attr/materialSecondaryDefaultTextColor"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_below="@id/ed_title"
+                android:id="@+id/tv"
+                android:text="@string/promp_select_category"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                    android:layout_below="@id/ed_title"
-                    android:layout_centerInParent="true"
-                    android:id="@+id/tv_d_catgory"
-                    android:text="Select a Category"/>
+        <Spinner
+                android:id="@+id/spinner_category"
+                android:layout_width="match_parent"
+                android:layout_below="@id/tv"
+                android:background="@drawable/square_edit_text_bg"
+                android:layout_height="wrap_content"/>
 
-            <Spinner
-                    android:id="@+id/spinner_category"
-                    android:layout_width="match_parent"
-                    android:layout_below="@id/tv_d_catgory"
-                    android:background="@drawable/square_edit_text_bg"
-                    android:layout_height="wrap_content"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_check_white_24dp"
+                app:backgroundTint="@color/colorPrimary"
+                android:layout_alignParentEnd="true"
+                app:fabSize="mini"
+                app:useCompatPadding="true"
+                android:layout_below="@id/spinner_category"
+                android:layout_height="wrap_content"
+                android:id="@+id/fab_save" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/ic_check_white_24dp"
-                    app:backgroundTint="@color/colorPrimary"
-                    android:layout_alignParentEnd="true"
-                    android:layout_margin="5dp"
-                    android:layout_below="@id/spinner_category"
-                    android:layout_height="wrap_content" android:id="@+id/fab_save" android:layout_marginTop="5dp"
-                    android:layout_marginStart="5dp" android:layout_marginEnd="5dp" android:layout_marginBottom="5dp"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_close_white_24dp"
+                app:backgroundTint="@color/colorAccent"
+                android:layout_alignParentStart="true"
+                app:fabSize="mini"
+                android:layout_below="@id/spinner_category"
+                android:layout_height="wrap_content"
+                app:useCompatPadding="true"
+                android:id="@+id/fab_cancel"/>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="wrap_content"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/ic_close_white_24dp"
-                    app:backgroundTint="@color/colorAccent"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@id/spinner_category"
-                    android:layout_height="wrap_content" android:id="@+id/fab_cancel" android:layout_marginTop="5dp"
-                    android:layout_marginStart="5dp" android:layout_marginEnd="5dp" android:layout_marginBottom="5dp"/>
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
+    </RelativeLayout>
 
 
 

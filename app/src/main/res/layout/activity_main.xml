@@ -2,27 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
 
     <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar">
+            android:theme="@style/AppTheme.AppBarOverlay">
+
         <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                android:theme="?attr/actionBarStyle"
-                android:minHeight="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways"
-                android:id="@+id/toolbar"/>
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -33,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             app:ntb_animation_duration="300"
-            app:ntb_bg_color="?attr/nav_bg_color"
+            app:ntb_bg_color="?attr/drawableTintColor"
             app:ntb_inactive_color="?attr/nav_text_color"
             app:ntb_scaled="true"
             app:ntb_swiped="true"

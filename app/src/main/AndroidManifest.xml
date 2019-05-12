@@ -3,6 +3,7 @@
           xmlns:dist="http://schemas.android.com/apk/distribution"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.cheiseproj.bik_krl.personalkotlin">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <dist:module dist:instant="true"/>
@@ -16,24 +17,37 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.settings.SettingsActivity">
+        <activity
+                android:name=".ui.settings.SettingsActivity"
+                android:label="@string/title_activity_settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value=".ui.main.activity.diary.DiaryActivity"
+            />
+
         </activity>
-        <activity android:name=".ui.personal.activity.AddOrUpdateActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/*"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".ui.personal.activity.PersonalActivity">
-        </activity>
-        <activity android:name=".ui.account.activity.AccountActivity">
+        <activity
+                android:name=".SplashActivity"
+                android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.main.activity.diary.DetailsActivity">
+        </activity>
+        <activity android:name=".ui.main.activity.diary.AddOrUpdateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.main.activity.diary.DiaryActivity" >
+        </activity>
+        <activity android:name=".ui.auth.activity.AuthActivity"/>
     </application>
 
 </manifest>

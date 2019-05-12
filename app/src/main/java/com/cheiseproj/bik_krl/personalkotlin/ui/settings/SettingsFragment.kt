@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceFragmentCompat
 import com.cheiseproj.bik_krl.personalkotlin.R
-import com.cheiseproj.bik_krl.personalkotlin.constant.KEY_PREF_DARK_THEME
-import com.cheiseproj.bik_krl.personalkotlin.ui.personal.activity.PersonalActivity
+import com.cheiseproj.bik_krl.personalkotlin.ui.main.activity.diary.DiaryActivity
+import com.cheiseproj.bik_krl.personalkotlin.utils.constant.AppConstant
 
 
 /**
@@ -24,12 +24,12 @@ class SettingsFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPr
     }
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when(key){
-            KEY_PREF_DARK_THEME -> applyDarkTheme()
+            AppConstant.KEY_PREF_DARK_THEME -> applyDarkTheme()
         }
     }
 
     private fun applyDarkTheme() {
-        val intent = Intent(context,PersonalActivity::class.java)
+        val intent = Intent(context, DiaryActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         (activity as? AppCompatActivity)?.finish()

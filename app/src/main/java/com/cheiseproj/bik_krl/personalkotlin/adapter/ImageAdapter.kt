@@ -19,7 +19,13 @@ class ImageAdapter constructor(
     : ListAdapter<PhotosEntity, ImageAdapter.ViewHolder>(DiffTask()) {
     private lateinit var callBack: AdapterCallBack<Int>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.image_list,parent,false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.image_list,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -45,7 +51,7 @@ class ImageAdapter constructor(
 
 }
 
-class DiffTask:DiffUtil.ItemCallback<PhotosEntity>(){
+private class DiffTask:DiffUtil.ItemCallback<PhotosEntity>(){
     override fun areItemsTheSame(oldItem: PhotosEntity, newItem: PhotosEntity): Boolean {
         return oldItem.imagePath == newItem.imagePath
     }
