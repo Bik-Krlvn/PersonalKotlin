@@ -1,4 +1,4 @@
-package com.cheiseproj.bik_krl.personalkotlin.room
+package com.cheiseproj.bik_krl.personalkotlin
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
@@ -13,13 +13,13 @@ abstract class DbTest {
     @JvmField
     @Rule var instantTaskExecutorRule = InstantTaskExecutorRule()
     @Before
-    fun setUp(){
+    open fun setUp(){
         db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().context,AppDatabase::class.java)
             .build()
     }
 
     @After
-    fun cleanUp(){
+    fun tearDown(){
         db.close()
     }
 }

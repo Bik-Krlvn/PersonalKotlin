@@ -13,7 +13,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addNewUser(userEntity: UserEntity): Single<Long>
 
-    @Query("SELECT email FROM table_user WHERE email = :email")
+    @Query("SELECT email FROM table_user WHERE email = :email LIMIT 1")
     fun checkUserEmail(email:String):Single<String>
 
     @Query("SELECT * FROM table_user WHERE email = :email AND password = :password LIMIT 1")
