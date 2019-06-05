@@ -1,27 +1,21 @@
 package com.cheiseproj.bik_krl.personalkotlin.ui.auth.activity
 
 import android.os.Bundle
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.cheiseproj.bik_krl.personalkotlin.R
 import com.cheiseproj.bik_krl.personalkotlin.base.BaseActivity
-import kotlinx.android.synthetic.main.account_appbar.*
+import com.cheiseproj.bik_krl.personalkotlin.ui.auth.fragment.LoginFragment
 
 class AuthActivity : BaseActivity() {
-    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_account)
-        setSupportActionBar(toolbar)
-        configureNavigation()
+        setContentView(R.layout.activity_auth)
+        setLoginPage()
     }
 
-    private fun configureNavigation() {
-        navController = Navigation.findNavController(this,R.id.account_nav_host_fragment)
-        bottom_nav.setupWithNavController(navController)
-        NavigationUI.setupActionBarWithNavController(this,navController)
+    private fun setLoginPage() {
+        val fragment = LoginFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_view,fragment).commit()
     }
+
 
 }

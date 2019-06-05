@@ -20,7 +20,7 @@ interface DiaryDao {
 
 
     @Query("SELECT * FROM table_diary WHERE id = :diaryId AND userId = :userId ")
-    fun getSpecifiedDiary(diaryId:Int,userId: Int):Single<DiaryEntity>
+    fun getSpecifiedDiary(diaryId:Int,userId: Int):Flowable<List<DiaryEntity>>
     //endregion
 
     //region Category

@@ -39,14 +39,14 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun authenticateUser() {
-        if (!inputValidationProvider.isEditTextFilled(view?.ed_email!!,"invalid email",true)){
+        if (!inputValidationProvider.isEditTextFilled(view?.et_email!!,"invalid email",true)){
             return
         }
-        if (!inputValidationProvider.isEditTextFilled(view?.ed_password!!,"invalid password")){
+        if (!inputValidationProvider.isEditTextFilled(view?.et_password!!,"invalid password")){
             return
         }
-        val email = view?.ed_email?.text.toString()
-        val password = view?.ed_password?.text.toString()
+        val email = view?.et_email?.text.toString()
+        val password = view?.et_password?.text.toString()
         viewModel.authenticateWithEmail(email,password)
     }
 

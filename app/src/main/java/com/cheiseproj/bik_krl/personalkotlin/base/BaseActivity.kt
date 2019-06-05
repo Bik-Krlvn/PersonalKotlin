@@ -35,7 +35,7 @@ abstract class BaseActivity:DaggerAppCompatActivity(),CoroutineScope {
     }
 
 
-    private fun setupTheme(){
+     fun setupTheme(){
         val themeMode= themeProvider.getThemeFromPreference()
         Timber.i("setupTheme: ${themeMode.name}")
         when(themeMode){
@@ -44,7 +44,7 @@ abstract class BaseActivity:DaggerAppCompatActivity(),CoroutineScope {
         }
     }
 
-     private fun observeAuthState(){
+    private fun observeAuthState(){
         sessionManager.getCachedUser().observe(this, Observer {
             it?.let {auth ->
                 when(auth.status){

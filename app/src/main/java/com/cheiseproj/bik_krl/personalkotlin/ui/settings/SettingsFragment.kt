@@ -33,6 +33,7 @@ class SettingsFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPr
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         (activity as? AppCompatActivity)?.finish()
+
     }
 
     override fun onDestroy() {

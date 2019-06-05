@@ -43,8 +43,9 @@ object SimpleDateProvider {
         return simpleDateFormat!!.format(date)
     }
 
-    fun getFormattedDate(smsTimeInMilis: Long): String {
+    fun getFormattedDate(smsTimeInMilis: Long?): String? {
         val currentTime = Calendar.getInstance()
+        if (smsTimeInMilis == null) return null
         currentTime.timeInMillis = smsTimeInMilis
         val now = Calendar.getInstance()
         val timeFormatString = "h:mm aa"

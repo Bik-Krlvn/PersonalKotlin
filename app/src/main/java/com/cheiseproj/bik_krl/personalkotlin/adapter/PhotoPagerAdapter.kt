@@ -1,11 +1,9 @@
 package com.cheiseproj.bik_krl.personalkotlin.adapter
 
-import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.viewpager.widget.PagerAdapter
 import com.cheiseproj.bik_krl.personalkotlin.R
 import com.cheiseproj.bik_krl.personalkotlin.data.db.entity.PhotosEntity
@@ -14,13 +12,15 @@ import kotlinx.android.synthetic.main.image_list.view.*
 import java.io.File
 import java.util.*
 
-class PhotoPagerAdapter(private val context: Context) : PagerAdapter() {
-    private var photosEntities: List<PhotosEntity>? = null
+class PhotoPagerAdapter : PagerAdapter() {
+    private lateinit var photosEntities: List<PhotosEntity>
 
     override fun getCount(): Int {
-        return photosEntities?.size ?: 0
+        if (::photosEntities.isInitialized) {
+            return photosEntities.size
+        }
+        return 0
     }
-
 
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -29,13 +29,19 @@ class PhotoPagerAdapter(private val context: Context) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(container.context).inflate(R.layout.image_list, container, false)
-        val photosEntity = photosEntities?.get(position)
-        val uri = Uri.parse(photosEntity?.imagePath)
-        val file = File(Objects.requireNonNull(uri.path))
-        if (file.exists()){
-            GlideApp.with(context).load(file).fallback(R.drawable.placeholder).centerCrop().into(view.image_view)
+        if (::photosEntities.isInitialized) {
+            if (photosEntities.isNotEmpty()) {
+                val photosEntity = photosEntities[position]
+                val uri = Uri.parse(photosEntity.imagePath)
+                val file = File(Objects.requireNonNull(uri.path))
+                if (file.exists()) {
+                    GlideApp.with(container.context).load(file).fallback(R.drawable.placeholder).centerCrop()
+                        .into(view.image_view)
+                }
+                container.addView(view)
+            }
         }
-        container.addView(view)
+
         return view
     }
 
@@ -43,8 +49,8 @@ class PhotoPagerAdapter(private val context: Context) : PagerAdapter() {
         container.removeView(`object` as View)
     }
 
-    fun setPhotos(photoList: List<PhotosEntity>){
-        photosEntities = photoList
+    fun setPhotos(photoList: List<PhotosEntity>) {
+        this.photosEntities = photoList
         notifyDataSetChanged()
     }
 }
